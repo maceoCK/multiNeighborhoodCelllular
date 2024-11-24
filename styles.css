@@ -1,0 +1,228 @@
+body,html {
+    background: #000;
+    font-family: system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Arial,sans-serif;
+    font-size: 14px;
+    height: 100%;
+    margin: 0;
+    width: 100%
+}
+
+.controls {
+    background-color: #333;
+    border-radius: 0 0 .25rem .25rem;
+    padding-top: .5rem;
+    position: fixed;
+    right: 1rem;
+    text-transform: lowercase;
+    top: 0;
+    transition: .4s cubic-bezier(.075,.82,.165,1);
+    width: 20rem;
+    z-index: 2
+}
+
+.controls label {
+    align-items: center;
+    display: flex;
+    padding: .25rem 1rem
+}
+
+.controls label span {
+    color: #fff;
+    flex-basis: 6rem;
+    font-size: .75rem
+}
+
+.controls label input {
+    flex: 1
+}
+
+.controls label button {
+    background: #191919;
+    border: none;
+    border-radius: .25rem;
+    color: #fff;
+    margin-right: .5rem;
+    padding: .5rem
+}
+
+.controls h2 {
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 0;
+    padding: 1.3rem 1rem .7rem
+}
+
+.controls>button:last-child {
+    background: #222;
+    border: none;
+    color: #fff;
+    margin-top: 10px;
+    padding: .25rem;
+    width: 100%
+}
+
+.controls>button:last-child:hover {
+    background: #444;
+    cursor: pointer
+}
+
+.controls.hidden>button:last-child {
+    transform: rotateX(180deg)
+}
+
+.controls.hidden {
+    transform: translateY(calc(-100% + 20px))
+}
+
+.collapsible>:not(h2) {
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: height .4s
+}
+
+.collapsible.collapsed>:not(h2) {
+    height: 0;
+    padding: 0
+}
+
+.collapsible h2 {
+    cursor: pointer;
+    position: relative
+}
+
+.collapsible h2:after {
+    color: #ccc;
+    content: "⌃";
+    display: block;
+    font-size: .75rem;
+    padding: .75rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    top: 20%
+}
+
+.collapsible h2:hover:after {
+    color: #fff
+}
+
+@media only screen and (max-device-width: 800px) {
+    .collapsible.collapsed>:not(h2) {
+        height:auto
+    }
+
+    .controls label {
+        padding: .25rem .5rem
+    }
+
+    .collapsible:not(.collapsed)>:not(h2) {
+        height: 0;
+        padding: 0
+    }
+
+    .controls {
+        transform: translateY(calc(-100% + 20px))
+    }
+
+    .controls.hidden {
+        transform: translateY(0)
+    }
+}
+
+.color {
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    display: block;
+    float: left;
+    height: 1em;
+    width: 1em
+}
+
+.color+.color {
+    margin-left: .5em
+}
+
+.color.red {
+    background: red
+}
+
+.color.green {
+    background: #0f0
+}
+
+.color.blue {
+    background: blue
+}
+
+:root {
+    --slider-height: 10px;
+    --slider-thumb-width: 0px;
+    --slider-thumb-border-width: 0px;
+    --slider-track-bg: #222;
+    --slider-track-active-bg: #ccc
+}
+
+input[type=range] {
+    border-radius: 0;
+    cursor: pointer;
+    height: var(--slider-height);
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 200px
+}
+
+::-webkit-slider-runnable-track,::-webkit-slider-thumb {
+    background: var(--slider-track-bg)
+}
+
+::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: var(--slider-thumb-border-width) solid #999;
+    box-shadow: -200px 0 0 200px var(--slider-track-active-bg);
+    height: var(--slider-height);
+    width: var(--slider-thumb-width)
+}
+
+::-moz-range-track {
+    background: var(--slider-track-bg);
+    height: var(--slider-height)
+}
+
+::-moz-range-thumb {
+    background: #fff;
+    border: var(--slider-thumb-border-width) solid #999;
+    border-radius: 0!important;
+    box-shadow: -200px 0 0 200px var(--slider-track-active-bg);
+    box-sizing: border-box;
+    height: var(--slider-height);
+    width: var(--slider-thumb-width)
+}
+
+::-ms-fill-lower {
+    background: var(--slider-track-active-bg)
+}
+
+::-ms-thumb {
+    background: #fff;
+    border: var(--slider-thumb-border-width) solid #999;
+    box-sizing: border-box;
+    height: var(--slider-height);
+    width: var(--slider-thumb-width)
+}
+
+::-ms-ticks-after,::-ms-ticks-before {
+    display: none
+}
+
+::-ms-track {
+    background: var(--slider-track-bg);
+    border: none;
+    color: transparent;
+    height: var(--slider-height)
+}
+
+::-ms-tooltip {
+    display: none
+}
